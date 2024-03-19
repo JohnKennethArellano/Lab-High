@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BaseLayout from '@/components/BaseLayout.vue'
 import store from '@/store'
-import { onMounted } from 'vue'
+import { reactive } from 'vue'
 
-const role = onMounted(() => store.state.userData.role)
+const role = reactive(store.state.userData.role)
 const routes = [
   //Login Route
   {
@@ -25,6 +25,12 @@ const routes = [
     component: BaseLayout,
     meta: { requiresAuth: true },
     children: [
+      {
+        path: '/admin/dashboard',
+        name: 'dashboard',
+        meta: { role: 'admin' },
+        component: () => import('../views/Admin/Dashboard.vue')
+      },
       {
         path: '/admin/attendance',
         name: 'attendance',
@@ -97,7 +103,6 @@ const routes = [
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Account.vue')
       }
-      //Add this for every child component meta : {role : <role ng entity na pwede mag access ng link>}
     ]
   }
 ]

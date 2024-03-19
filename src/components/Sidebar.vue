@@ -29,9 +29,9 @@
 
 
 <script setup>
-import { computed } from 'vue';
+import { reactive } from 'vue';
 import store from '@/store';
-const role = computed(() => store.state.userData.role)
+const role = reactive(store.state.userData.role)
 const teacherSidebar = [
     { route: "/adviser/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
     { route: "/adviser/attendance", icon: "mage:calendar", text: "Attendance" },
