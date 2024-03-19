@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .baseLayout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'navbar navbar'
+      'sidebar main';
+    height: 100vh;
+  }
+  .navbar {
+    grid-area: navbar;
+    background-color: white;
+    height: 5.625rem;
+    z-index: 1;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: white;
+    width: 18vw;
+  }
+
+  .main-content {
+    grid-area: main;
+    background-color: #faf5f1;
+  }
+}
