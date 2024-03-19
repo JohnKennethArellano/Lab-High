@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BaseLayout from '@/components/BaseLayout.vue'
 import store from '@/store'
-import { reactive } from 'vue'
 
-const role = reactive(store.state.userData.role)
 const routes = [
   //Login Route
   {
@@ -17,11 +15,18 @@ const routes = [
     name: 'error',
     component: () => import('../views/404.vue')
   },
-  // { path: '/:pathMatch(.*)*', redirect: '/404' },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/login'
+  },
+  // { path: '/:pathMatch(.*)*', redirect: '/login' },
   //Main content after Login
   {
     path: '/',
-    redirect: `/${role}/dashboard`,
+    redirect: () => {
+      let userRole = store.state.userData.role
+      return userRole ? `/${userRole}/dashboard` : '/login'
+    },
     component: BaseLayout,
     meta: { requiresAuth: true },
     children: [
@@ -115,11 +120,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.state.userData.token) {
+  const { token, role } = store.state.userData
+  if (to.meta.requiresAuth && !token) {
     next({ name: 'login' })
-  } else if (store.state.userData.token && to.name === 'login') {
-    next({ name: 'dashboard' })
-  } else if (role != to.meta.role) {
+  } else if (token && to.name === 'login') {
+    const redirectPath = role ? `/${role}/dashboard` : '/'
+    next(redirectPath)
+  } else if (to.meta.role && role !== to.meta.role) {
     next({ name: 'login' })
   } else {
     next()

@@ -1,6 +1,10 @@
-export default {
+import { reactive } from 'vue'
+
+const state = reactive({
   userData: {
-    role: '',
-    token: ''
+    role: null,
+    token: null
   }
-}
+})
+
+export default state
