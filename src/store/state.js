@@ -1,5 +1,6 @@
 export default {
   userData: {
-    data: { role: 'admin' }
+    role: 'admin',
+    token: 'dakadh'
   }
 }

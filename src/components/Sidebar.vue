@@ -29,11 +29,9 @@
 
 
 <script setup>
-import { useStore } from 'vuex';
 import { computed } from 'vue';
-const store = useStore()
-
-const role = computed(() => store.state.userData.data.role)
+import store from '@/store';
+const role = computed(() => store.state.userData.role)
 const teacherSidebar = [
     { route: "/", icon: "material-symbols:search", text: "teacher" },
     { route: "/", icon: "material-symbols:search", text: "teacher" },
@@ -43,7 +41,7 @@ const teacherSidebar = [
 
 ]
 const adminSidebar = [
-    { route: "/dashboard", icon: "material-symbols:search", text: "admin" },
+    { route: "/teacher/test", icon: "material-symbols:search", text: "admin" },
     { route: "/about", icon: "material-symbols:search", text: "admin" },
     { route: "/test", icon: "material-symbols:search", text: "admin" },
     { route: "/datesshboard", icon: "material-symbols:search", text: "admin" },
