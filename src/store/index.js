@@ -1,12 +1,12 @@
-import Vuex from 'vuex'
 
+import { createStore } from 'vuex'
 import  state  from './state'
 import mutations from './mutations'
 import actions from './actions'
 
 import admin from './modules/admin'
 import teacher from './modules/teacher'
-export default new Vuex.Store({
+const store = createStore({
   state,
   mutations,
   actions,
@@ -16,3 +16,5 @@ export default new Vuex.Store({
     teacher
   }
 })
+
+export default store

@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BaseLayout from '@/components/BaseLayout.vue'
 import store from '@/store'
-import { onMounted } from 'vue'
 
-const role = onMounted(() => store.state.userData.role)
 const routes = [
   //Login Route
   {
@@ -17,13 +15,27 @@ const routes = [
     name: 'error',
     component: () => import('../views/404.vue')
   },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/login'
+  },
+  // { path: '/:pathMatch(.*)*', redirect: '/login' },
   //Main content after Login
   {
     path: '/',
-    redirect: `/${role}/dashboard`,
+    redirect: () => {
+      let userRole = store.state.userData.role
+      return userRole ? `/${userRole}/dashboard` : '/login'
+    },
     component: BaseLayout,
     meta: { requiresAuth: true },
     children: [
+      {
+        path: '/admin/dashboard',
+        name: 'dashboard',
+        meta: { role: 'admin' },
+        component: () => import('../views/Admin/Dashboard.vue')
+      },
       {
         path: '/admin/attendance',
         name: 'adminAttendance',
@@ -103,7 +115,6 @@ const routes = [
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Account.vue')
       }
-      //Add this for every child component meta : {role : <role ng entity na pwede mag access ng link>}
     ]
   }
 ]
@@ -115,16 +126,18 @@ const router = createRouter({
   linkExactActiveClass: 'exact-active'
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.requiresAuth && !store.state.userData.token) {
-//     next({ name: 'login' })
-//   } else if (store.state.userData.token && to.name === 'login') {
-//     next({ name: 'dashboard' })
-//   } else if (role != to.meta.role) {
-//     next({ name: 'login' })
-//   } else {
-//     next()
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  const { token, role } = store.state.userData
+  if (to.meta.requiresAuth && !token) {
+    next({ name: 'login' })
+  } else if (token && to.name === 'login') {
+    const redirectPath = role ? `/${role}/dashboard` : '/'
+    next(redirectPath)
+  } else if (to.meta.role && role !== to.meta.role) {
+    next({ name: 'login' })
+  } else {
+    next()
+  }
+})
 
 export default router
