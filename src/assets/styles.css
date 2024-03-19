@@ -29,4 +29,14 @@
     grid-area: main;
     background-color: #faf5f1;
   }
+  nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  nav ul li svg {
+    width: 20px;
+    height: 20px;
+  }
 }

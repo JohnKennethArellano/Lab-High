@@ -43,10 +43,13 @@ const teacherSidebar = [
 
 ]
 const adminSidebar = [
-    { route: "/dashboard", icon: "material-symbols:search", text: "admin" },
-    { route: "/about", icon: "material-symbols:search", text: "admin" },
-    { route: "/test", icon: "material-symbols:search", text: "admin" },
-    { route: "/datesshboard", icon: "material-symbols:search", text: "admin" },
+    { route: "/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
+    { route: "/attendance", icon: "mage:calendar", text: "Attendance" },
+    { route: "/listOfSections", icon: "iconamoon:arrow-right-2", text: "List of Sections" },
+    { route: "/listOfStudents", icon: "iconamoon:arrow-right-2", text: "List of Students" },
+    { route: "/announcements", icon: "heroicons:megaphone", text: "Announcements" },
+    { route: "/users", icon: "flowbite:users-group-outline", text: "Users" },
+    { route: "/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
 
 
 ]
