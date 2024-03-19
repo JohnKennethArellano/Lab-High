@@ -29,11 +29,9 @@
 
 
 <script setup>
-import { useStore } from 'vuex';
 import { computed } from 'vue';
-const store = useStore()
-
-const role = computed(() => store.state.userData.data.role)
+import store from '@/store';
+const role = computed(() => store.state.userData.role)
 const teacherSidebar = [
     { route: "/adviser/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
     { route: "/adviser/attendance", icon: "mage:calendar", text: "Attendance" },
