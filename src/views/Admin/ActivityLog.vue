@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  admin
+  <div class="tabTitle">Activity log</div>
 </template>

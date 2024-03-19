@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  adm att
+  <div class="tabTitle">attendance</div>
 </template>

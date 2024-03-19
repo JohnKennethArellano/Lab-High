@@ -13,76 +13,78 @@ const routes = [
     name: 'error',
     component: () => import('../views/404.vue')
   },
-  // { path: '/:pathMatch(.*)*', redirect: '/404' },
   //Main content after Login
   {
     path: '/',
     redirect: '/dashboard',
     component: BaseLayout,
     children: [
+      { path: '/admin/', redirect: '/admin/dashboard' },
+      { path: '/:pathMatch(.*)*', redirect: '/404' },
       {
         path: '/admin/dashboard',
-        name: 'dashboard',
+        name: 'adminDashboard',
         component: () => import('../views/Admin/Dashboard.vue')
       },
       {
         path: '/admin/attendance',
-        name: 'attendance',
+        name: 'adminAttendance',
         component: () => import('../views/Admin/Attendance.vue')
       },
       {
         path: '/admin/listOfSections',
-        name: 'listOfSections',
+        name: 'adminListOfSections',
         component: () => import('../views/Admin/ListOfSections.vue')
       },
       {
         path: '/admin/listOfStudents',
-        name: 'listOfStudents',
+        name: 'adminListOfStudents',
         component: () => import('../views/Admin/ListOfStudents.vue')
       },
       {
         path: '/admin/announcements',
-        name: 'announcements',
+        name: 'adminAnnouncements',
         component: () => import('../views/Admin/Announcements.vue')
       },
       {
         path: '/admin/account',
-        name: 'account',
+        name: 'adminAccount',
         component: () => import('../views/Admin/Account.vue')
       },
       {
         path: '/admin/users',
-        name: 'users',
+        name: 'adminUsers',
         component: () => import('../views/Admin/Users.vue')
       },
       {
         path: '/admin/activityLog',
-        name: 'activityLog',
+        name: 'adminActivityLog',
         component: () => import('../views/Admin/ActivityLog.vue')
       },
+      { path: '/adviser/', redirect: '/adviser/dashboard' },
       {
         path: '/adviser/dashboard',
-        name: 'dashboard',
+        name: 'adviserDashboard',
         component: () => import('../views/Adviser/Dashboard.vue')
       },
       {
         path: '/adviser/attendance',
-        name: 'attendance',
+        name: 'adviserAttendance',
         component: () => import('../views/Adviser/Attendance.vue')
       },
       {
         path: '/adviser/registration',
-        name: 'registration',
+        name: 'adviserRegistration',
         component: () => import('../views/Adviser/Registration.vue')
       },
       {
         path: '/adviser/announcements',
-        name: 'announcements',
+        name: 'adviserAnnouncements',
         component: () => import('../views/Adviser/Announcements.vue')
       },
       {
         path: '/adviser/account',
-        name: 'account',
+        name: 'adviserAccount',
         component: () => import('../views/Adviser/Account.vue')
       }
     ]
