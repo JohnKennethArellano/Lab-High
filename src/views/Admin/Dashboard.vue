@@ -3,6 +3,5 @@
 </script>
 
 <template>
-  <div class="tabTitle">
-    adm dash</div>
+  <div class="tabTitle">dashboard</div>
 </template>

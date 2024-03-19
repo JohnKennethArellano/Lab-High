@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  admin
+  <div class="tabTitle">users</div>
 </template>

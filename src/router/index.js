@@ -78,6 +78,7 @@ const routes = [
         meta: { role: 'admin' },
         component: () => import('../views/Admin/ActivityLog.vue')
       },
+      { path: '/adviser/', redirect: '/adviser/dashboard' },
       {
         path: '/adviser/dashboard',
         name: 'dashboard',
