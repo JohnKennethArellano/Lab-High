@@ -26,74 +26,80 @@ const routes = [
     children: [
       {
         path: '/admin/attendance',
-        name: 'attendance',
+        name: 'adminAttendance',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/Attendance.vue')
       },
       {
         path: '/admin/listOfSections',
-        name: 'listOfSections',
+        name: 'adminListOfSections',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/ListOfSections.vue')
       },
       {
         path: '/admin/listOfStudents',
-        name: 'listOfStudents',
+        name: 'adminListOfStudents',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/ListOfStudents.vue')
       },
       {
         path: '/admin/announcements',
-        name: 'announcements',
+        name: 'adminAnnouncements',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/Announcements.vue')
       },
       {
         path: '/admin/account',
-        name: 'account',
+        name: 'adminAccount',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/Account.vue')
       },
       {
         path: '/admin/users',
-        name: 'users',
+        name: 'adminUsers',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/Users.vue')
       },
       {
         path: '/admin/activityLog',
-        name: 'activityLog',
+        name: 'adminActivityLog',
         meta: { role: 'admin' },
         component: () => import('../views/Admin/ActivityLog.vue')
       },
       { path: '/adviser/', redirect: '/adviser/dashboard' },
       {
+        path: '/admin/dashboard',
+        name: 'adminDashboard',
+        meta: { role: 'admin' },
+        component: () => import('../views/Admin/Dashboard.vue')
+      },
+      {
         path: '/adviser/dashboard',
-        name: 'dashboard',
+        name: 'adviserDashboard',
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Dashboard.vue')
       },
       {
         path: '/adviser/attendance',
-        name: 'attendance',
+        name: 'adviserAttendance',
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Attendance.vue')
       },
       {
         path: '/adviser/registration',
-        name: 'registration',
+        name: 'adviserRegistration',
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Registration.vue')
       },
       {
         path: '/adviser/announcements',
-        name: 'announcements',
+        name: 'adviserAnnouncements',
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Announcements.vue')
       },
       {
         path: '/adviser/account',
-        name: 'account',
+        name: 'adviserAccount',
         meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Account.vue')
       }
@@ -109,16 +115,16 @@ const router = createRouter({
   linkExactActiveClass: 'exact-active'
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.state.userData.token) {
-    next({ name: 'login' })
-  } else if (store.state.userData.token && to.name === 'login') {
-    next({ name: 'dashboard' })
-  } else if (role != to.meta.role) {
-    next({ name: 'login' })
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requiresAuth && !store.state.userData.token) {
+//     next({ name: 'login' })
+//   } else if (store.state.userData.token && to.name === 'login') {
+//     next({ name: 'dashboard' })
+//   } else if (role != to.meta.role) {
+//     next({ name: 'login' })
+//   } else {
+//     next()
+//   }
+// })
 
 export default router
