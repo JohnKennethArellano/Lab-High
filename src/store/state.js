@@ -1,5 +1,5 @@
 export default {
   userData: {
-    data: { role: 'admin' }
+    data: { role: 'adviser' }
   }
 }

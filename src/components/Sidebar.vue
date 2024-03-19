@@ -35,21 +35,23 @@ const store = useStore()
 
 const role = computed(() => store.state.userData.data.role)
 const teacherSidebar = [
-    { route: "/", icon: "material-symbols:search", text: "teacher" },
-    { route: "/", icon: "material-symbols:search", text: "teacher" },
-    { route: "/", icon: "material-symbols:search", text: "teacher" },
-    { route: "/", icon: "material-symbols:search", text: "teacher" },
+    { route: "/adviser/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
+    { route: "/adviser/attendance", icon: "mage:calendar", text: "Attendance" },
+    { route: "/adviser/registration", icon: "mage:user-plus", text: "Registration" },
+    { route: "/adviser/announcements", icon: "heroicons:megaphone", text: "Announcements" },
+    { route: "/adviser/account", icon: "mage:settings", text: "Account" },
 
 
 ]
 const adminSidebar = [
-    { route: "/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
-    { route: "/attendance", icon: "mage:calendar", text: "Attendance" },
-    { route: "/listOfSections", icon: "iconamoon:arrow-right-2", text: "List of Sections" },
-    { route: "/listOfStudents", icon: "iconamoon:arrow-right-2", text: "List of Students" },
-    { route: "/announcements", icon: "heroicons:megaphone", text: "Announcements" },
-    { route: "/users", icon: "flowbite:users-group-outline", text: "Users" },
-    { route: "/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
+    { route: "/admin/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
+    { route: "/admin/attendance", icon: "mage:calendar", text: "Attendance" },
+    { route: "/admin/listOfSections", icon: "iconamoon:arrow-right-2", text: "List of Sections" },
+    { route: "/admin/listOfStudents", icon: "iconamoon:arrow-right-2", text: "List of Students" },
+    { route: "/admin/announcements", icon: "heroicons:megaphone", text: "Announcements" },
+    { route: "/admin/account", icon: "mage:settings", text: "Account" },
+    { route: "/admin/users", icon: "flowbite:users-group-outline", text: "Users" },
+    { route: "/admin/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
 
 
 ]
