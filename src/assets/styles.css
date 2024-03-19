@@ -14,19 +14,54 @@
   }
   .navbar {
     grid-area: navbar;
-    background-color: white;
-    height: 5.625rem;
+    background-color: #f7f8fc;
+    height: 4.6875rem;
     z-index: 1;
+    box-shadow: 2px 0 2px 2px #00000025;
   }
 
   .sidebar {
     grid-area: sidebar;
-    background-color: white;
-    width: 18vw;
+    background-color: #f7f8fc;
+    width: 250px;
+    padding: 20px;
+    padding-top: 50px;
   }
 
   .main-content {
     grid-area: main;
-    background-color: #faf5f1;
+    background-color: #ffffff;
+    padding: 40px 55px;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  nav ul li:hover {
+    font-weight: 500;
+    transition: ease-in all 0.3s;
+  }
+  nav ul li svg {
+    width: 25px;
+    height: 25px;
+  }
+  nav ul a.active li {
+    background-color: #9b0d32;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-weight: 500;
+  }
+  .tabTitle {
+    color: #9b0d32;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
   }
 }
