@@ -1,7 +1,7 @@
 const state = {
-  userData: {
-    role: 'admin',
-    token: 'adsd'
+  userData: {},
+  logOutModal: {
+    isShowing: false
   }
 }
 export default state

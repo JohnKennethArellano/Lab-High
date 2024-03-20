@@ -6,9 +6,10 @@
 
 
 <script setup>
-import store from '@/store';
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+const store = useStore()
 const router = useRouter()
 const formData = reactive({
   email: "",

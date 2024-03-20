@@ -25,16 +25,18 @@
             </ul>
         </nav>
 
-        <router-link to="/" class="logoutBtn">
+        <button class="logoutBtn" @click="logout">
             <Icon icon="basil:logout-outline" />
             <span>Logout</span>
-        </router-link>
+        </button>
     </div>
 </template>
 
 
 <script setup>
-import store from '@/store';
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+const store = useStore()
 const role = store.state.userData.role
 const teacherSidebar = [
     { route: "/adviser/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
@@ -58,4 +60,7 @@ const adminSidebar = [
 
 ]
 
+const logout = () => {
+    store.dispatch("showLogoutModal", true)
+}
 </script>
