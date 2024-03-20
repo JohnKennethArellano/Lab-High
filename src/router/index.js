@@ -29,42 +29,42 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'dashboard',
+        name: 'adminDashboard',
         component: () => import('../views/Admin/Dashboard.vue')
       },
       {
         path: '/attendance',
-        name: 'attendance',
+        name: 'adminAttendance',
         component: () => import('../views/Admin/Attendance.vue')
       },
       {
         path: '/listOfSections',
-        name: 'listOfSections',
+        name: 'adminListOfSections',
         component: () => import('../views/Admin/ListOfSections.vue')
       },
       {
         path: '/listOfStudents',
-        name: 'listOfStudents',
+        name: 'adminLlistOfStudents',
         component: () => import('../views/Admin/ListOfStudents.vue')
       },
       {
         path: '/announcements',
-        name: 'announcements',
+        name: 'adminAnnouncements',
         component: () => import('../views/Admin/Announcements.vue')
       },
       {
         path: '/account',
-        name: 'account',
+        name: 'adminAccount',
         component: () => import('../views/Admin/Account.vue')
       },
       {
         path: '/users',
-        name: 'users',
+        name: 'adminUsers',
         component: () => import('../views/Admin/Users.vue')
       },
       {
         path: '/activityLog',
-        name: 'activityLog',
+        name: 'adminActivityLog',
         component: () => import('../views/Admin/ActivityLog.vue')
       }
     ]
@@ -78,32 +78,32 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'dashboard',
+        name: 'adviserDashboard',
         component: () => import('../views/Adviser/Dashboard.vue')
       },
       {
         path: '/dashboard',
-        name: 'dashboard',
+        name: 'adviserDashboard',
         component: () => import('../views/Adviser/Dashboard.vue')
       },
       {
         path: '/attendance',
-        name: 'attendance',
+        name: 'adviserAttendance',
         component: () => import('../views/Adviser/Attendance.vue')
       },
       {
         path: '/registration',
-        name: 'registration',
+        name: 'adviserRegistration',
         component: () => import('../views/Adviser/Registration.vue')
       },
       {
         path: '/announcements',
-        name: 'announcements',
+        name: 'adviserAnnouncements',
         component: () => import('../views/Adviser/Announcements.vue')
       },
       {
         path: '/account',
-        name: 'account',
+        name: 'adviserAccount',
         component: () => import('../views/Adviser/Account.vue')
       }
     ]
