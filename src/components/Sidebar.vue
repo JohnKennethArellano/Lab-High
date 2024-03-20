@@ -26,7 +26,7 @@
             </ul>
         </nav>
 
-        <button class="logoutBtn">
+        <button class="logoutBtn" @click="logout">
             <Icon icon="basil:logout-outline" />
             <span>Logout</span>
         </button>
@@ -36,7 +36,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import store from '@/store';
+import { useStore } from 'vuex';
+const store = useStore()
 const role = store.state.userData.role
 const teacherSidebar = [
     { route: "/adviser/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
@@ -58,8 +59,7 @@ const adminSidebar = [
     { route: "/admin/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
 ]
 
-const isCollapsed = ref(false);
-function toggleSidebar() {
-    isCollapsed.value = !isCollapsed.value;
+const logout = () => {
+    store.dispatch("showLogoutModal", true)
 }
 </script>

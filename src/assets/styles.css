@@ -1,7 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer components {
+  body {
+    @apply tracking-wide;
+  }
+  .mainButton {
+    @apply text-sm text-white bg-primary  py-3 rounded-md border border-primary;
+  }
+  .secondaryButton {
+    @apply text-sm text-primary bg-white  py-3 rounded-md border border-primary;
+  }
+}
 @layer utilities {
   .baseLayout {
     display: grid;
