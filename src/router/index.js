@@ -5,8 +5,9 @@ import store from '@/store'
 const routes = [
   //Login Route
   {
-    path: '/login',
+    path: '/',
     name: 'login',
+    meta: { requiresAuth: false },
     component: () => import('../views/LogIn.vue')
   },
   // 404 page
@@ -17,96 +18,92 @@ const routes = [
   },
   {
     path: '/:catchAll(.*)',
-    redirect: '/login'
+    redirect: '/'
   },
-  // { path: '/:pathMatch(.*)*', redirect: '/login' },
-  //Main content after Login
+  //Admin Route
   {
-    path: '/',
-    redirect: () => {
-      let userRole = store.state.userData.role
-      return userRole ? `/${userRole}/dashboard` : '/login'
-    },
+    path: '/admin',
+    name: 'admin',
     component: BaseLayout,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true, role: 'admin' },
     children: [
       {
-        path: '/admin/dashboard',
+        path: '',
         name: 'dashboard',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/Dashboard.vue')
       },
       {
-        path: '/admin/attendance',
+        path: '/attendance',
         name: 'attendance',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/Attendance.vue')
       },
       {
-        path: '/admin/listOfSections',
+        path: '/listOfSections',
         name: 'listOfSections',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/ListOfSections.vue')
       },
       {
-        path: '/admin/listOfStudents',
+        path: '/listOfStudents',
         name: 'listOfStudents',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/ListOfStudents.vue')
       },
       {
-        path: '/admin/announcements',
+        path: '/announcements',
         name: 'announcements',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/Announcements.vue')
       },
       {
-        path: '/admin/account',
+        path: '/account',
         name: 'account',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/Account.vue')
       },
       {
-        path: '/admin/users',
+        path: '/users',
         name: 'users',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/Users.vue')
       },
       {
-        path: '/admin/activityLog',
+        path: '/activityLog',
         name: 'activityLog',
-        meta: { role: 'admin' },
         component: () => import('../views/Admin/ActivityLog.vue')
-      },
-      { path: '/adviser/', redirect: '/adviser/dashboard' },
+      }
+    ]
+  },
+  //Adviser Route
+  {
+    path: '/adviser',
+    name: 'adviser',
+    component: BaseLayout,
+    meta: { requiresAuth: true, role: 'adviser' },
+    children: [
       {
-        path: '/adviser/dashboard',
+        path: '',
         name: 'dashboard',
-        meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Dashboard.vue')
       },
       {
-        path: '/adviser/attendance',
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('../views/Adviser/Dashboard.vue')
+      },
+      {
+        path: '/attendance',
         name: 'attendance',
-        meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Attendance.vue')
       },
       {
-        path: '/adviser/registration',
+        path: '/registration',
         name: 'registration',
-        meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Registration.vue')
       },
       {
-        path: '/adviser/announcements',
+        path: '/announcements',
         name: 'announcements',
-        meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Announcements.vue')
       },
       {
-        path: '/adviser/account',
+        path: '/account',
         name: 'account',
-        meta: { role: 'adviser' },
         component: () => import('../views/Adviser/Account.vue')
       }
     ]
@@ -121,17 +118,21 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const { token, role } = store.state.userData
-  if (to.meta.requiresAuth && !token) {
-    next({ name: 'login' })
-  } else if (token && to.name === 'login') {
-    const redirectPath = role ? `/${role}/dashboard` : '/'
-    next(redirectPath)
+  const token = store.state.userData.token;
+  const role = store.state.userData.role;
+  const userLoggedIn = token ? true : false;
+
+  if (to.meta.requiresAuth && !userLoggedIn) {
+    next({ name: 'login' });
+  } else if (userLoggedIn && to.name === 'login') {
+    const redirectPath = role ? `/${role}` : '/';
+    next(redirectPath);
   } else if (to.meta.role && role !== to.meta.role) {
-    next({ name: 'login' })
+    next(`/${role}`);
   } else {
-    next()
+    next(); 
   }
-})
+});
+
 
 export default router
