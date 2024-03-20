@@ -28,7 +28,7 @@ const routes = [
     meta: { requiresAuth: true, role: 'admin' },
     children: [
       {
-        path: '',
+        path: '/dashboard',
         name: 'dashboard',
         component: () => import('../views/Admin/Dashboard.vue')
       },
@@ -77,11 +77,6 @@ const routes = [
     meta: { requiresAuth: true, role: 'adviser' },
     children: [
       {
-        path: '',
-        name: 'dashboard',
-        component: () => import('../views/Adviser/Dashboard.vue')
-      },
-      {
         path: '/dashboard',
         name: 'dashboard',
         component: () => import('../views/Adviser/Dashboard.vue')
@@ -118,21 +113,20 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const token = store.state.userData.token;
-  const role = store.state.userData.role;
-  const userLoggedIn = token ? true : false;
+  const token = store.state.userData.token
+  const role = store.state.userData.role
+  const userLoggedIn = token ? true : false
 
   if (to.meta.requiresAuth && !userLoggedIn) {
-    next({ name: 'login' });
+    next({ name: 'login' })
   } else if (userLoggedIn && to.name === 'login') {
-    const redirectPath = role ? `/${role}` : '/';
-    next(redirectPath);
+    const redirectPath = role ? `/${role}` : '/'
+    next(redirectPath)
   } else if (to.meta.role && role !== to.meta.role) {
-    next(`/${role}`);
+    next(`/${role}`)
   } else {
-    next(); 
+    next()
   }
-});
-
+})
 
 export default router

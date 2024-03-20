@@ -29,27 +29,26 @@
 
 
 <script setup>
-import { reactive } from 'vue';
 import store from '@/store';
-const role = reactive(store.state.userData.role)
+const role = store.state.userData.role
 const teacherSidebar = [
-    { route: "/adviser/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
-    { route: "/adviser/attendance", icon: "mage:calendar", text: "Attendance" },
-    { route: "/adviser/registration", icon: "mage:user-plus", text: "Registration" },
-    { route: "/adviser/announcements", icon: "heroicons:megaphone", text: "Announcements" },
-    { route: "/adviser/account", icon: "mage:settings", text: "Account" },
+    { route: "/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
+    { route: "/attendance", icon: "mage:calendar", text: "Attendance" },
+    { route: "/registration", icon: "mage:user-plus", text: "Registration" },
+    { route: "/announcements", icon: "heroicons:megaphone", text: "Announcements" },
+    { route: "/account", icon: "mage:settings", text: "Account" },
 
 
 ]
 const adminSidebar = [
-    { route: "/admin/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
-    { route: "/admin/attendance", icon: "mage:calendar", text: "Attendance" },
-    { route: "/admin/listOfSections", icon: "iconamoon:arrow-right-2", text: "List of Sections" },
-    { route: "/admin/listOfStudents", icon: "iconamoon:arrow-right-2", text: "List of Students" },
-    { route: "/admin/announcements", icon: "heroicons:megaphone", text: "Announcements" },
-    { route: "/admin/account", icon: "mage:settings", text: "Account" },
-    { route: "/admin/users", icon: "flowbite:users-group-outline", text: "Users" },
-    { route: "/admin/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
+    { route: "/dashboard", icon: "mage:dashboard-chart", text: "Dashboard" },
+    { route: "/attendance", icon: "mage:calendar", text: "Attendance" },
+    { route: "/listOfSections", icon: "iconamoon:arrow-right-2", text: "List of Sections" },
+    { route: "/listOfStudents", icon: "iconamoon:arrow-right-2", text: "List of Students" },
+    { route: "/announcements", icon: "heroicons:megaphone", text: "Announcements" },
+    { route: "/account", icon: "mage:settings", text: "Account" },
+    { route: "/users", icon: "flowbite:users-group-outline", text: "Users" },
+    { route: "/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
 
 
 ]

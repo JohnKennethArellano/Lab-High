@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const axiosClient = axios.create({
     //baseURL: "/api",
-    baseURL: "https://aims.bulsu-ovprei.com/api",
+    baseURL: "http://192.168.68.159:8080/api/",
     headers:{
         "Content-Type":"application/json",
         'Authorization': 'Bearer ${store.state.user.token}',
