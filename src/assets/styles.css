@@ -18,6 +18,10 @@
     height: 4.6875rem;
     z-index: 1;
     box-shadow: 2px 0 2px 2px #00000025;
+
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
   }
 
   .sidebar {
@@ -75,5 +79,30 @@
     width: 250px;
     height: auto;
     margin-left: 1rem;
+  }
+  .navbar .right,
+  .navbar .right .user,
+  .navbar .right .user .userImg {
+    height: 100%;
+  }
+  .navbar .right .user,
+  .navbar .right .user .userImg {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .user img {
+    height: 3.25rem;
+    width: 3.25rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .userDetails .name {
+    font-weight: 600;
+    line-height: 1;
+  }
+  .userDetails .role {
+    line-height: 1.25;
+    text-transform: uppercase;
   }
 }
