@@ -1,5 +1,6 @@
 <template>
-    <div class="sidebar bg-green-200">
+    <div :class="['sidebar bg-green-200', { 'collapsed': isCollapsed }]">
+        <Icon icon="icon-park-outline:hamburger-button" class="hamburger" @click="toggleSidebar" />
 
         <!-- admin side bar content -->
         <nav v-if="role === 'admin'">
@@ -25,15 +26,16 @@
             </ul>
         </nav>
 
-        <router-link to="/" class="logoutBtn">
+        <button class="logoutBtn">
             <Icon icon="basil:logout-outline" />
             <span>Logout</span>
-        </router-link>
+        </button>
     </div>
 </template>
 
 
 <script setup>
+import { ref } from 'vue';
 import store from '@/store';
 const role = store.state.userData.role
 const teacherSidebar = [
@@ -54,8 +56,10 @@ const adminSidebar = [
     { route: "/admin/account", icon: "mage:settings", text: "Account" },
     { route: "/admin/users", icon: "flowbite:users-group-outline", text: "Users" },
     { route: "/admin/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
-
-
 ]
 
+const isCollapsed = ref(false);
+function toggleSidebar() {
+    isCollapsed.value = !isCollapsed.value;
+}
 </script>

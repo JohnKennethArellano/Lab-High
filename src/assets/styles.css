@@ -11,6 +11,7 @@
       'navbar navbar'
       'sidebar main';
     height: 100vh;
+    overflow-y: hidden;
   }
   .navbar {
     grid-area: navbar;
@@ -23,17 +24,6 @@
     justify-content: space-between;
     padding-right: 50px;
   }
-
-  .sidebar {
-    grid-area: sidebar;
-    background-color: #f7f8fc;
-    width: 250px;
-    padding: 20px;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-  }
-
   .main-content {
     grid-area: main;
     background-color: #ffffff;
@@ -117,5 +107,49 @@
   .userDetails .role {
     line-height: 1.25;
     text-transform: uppercase;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    /* transition: ease 0.5s width; */
+
+    grid-area: sidebar;
+    background-color: #f7f8fc;
+    width: 250px;
+    padding: 20px;
+  }
+  .sidebar .hamburger {
+    align-self: end;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 1rem;
+  }
+  .sidebar.collapsed .hamburger {
+    align-self: center;
+  }
+  /* collapsed sidebar */
+  .sidebar.collapsed {
+    width: 5rem;
+    transition: ease 0.5s;
+  }
+  nav li span,
+  .logoutBtn span {
+    /* transition: ease 0.5s; */
+    @apply whitespace-nowrap;
+    animation: animate__slideInLeft; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+  }
+  .sidebar.collapsed nav li span,
+  .sidebar.collapsed .logoutBtn span {
+    margin-bottom: 1rem;
+    display: none;
+    /* transition: ease 0.5s; */
+
+    animation: animate__slideInLeft; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+  }
+  .sidebar.collapsed nav ul li,
+  .sidebar.collapsed .logoutBtn {
+    width: fit-content;
   }
 }

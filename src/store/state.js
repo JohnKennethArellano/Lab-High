@@ -1,6 +1,6 @@
 const state = {
   userData: {
-    role: 'admin',
+    role: 'adviser',
     token: 'adsd'
   }
 }
