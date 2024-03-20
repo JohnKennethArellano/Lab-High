@@ -1,6 +1,5 @@
 import axios from '@/axios/axios'
-import axioswithtoken from '@/axios/axioswithtoken'
-
+import axiosAuth from '@/axios/axioswithtoken'
 
 export default {
   async login({ commit }, formData) {
@@ -13,7 +12,7 @@ export default {
     commit('showLogOutModal', value)
   },
   async logoutUser({ commit }) {
-    await axioswithtoken.post('logout').then((data) => {
+    await axiosAuth.get('logout').then((data) => {
       commit('resetUserData')
       return data
     })

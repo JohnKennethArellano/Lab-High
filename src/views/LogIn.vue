@@ -17,7 +17,6 @@ const formData = reactive({
 })
 const login = () => {
   store.dispatch("login", formData).then((data) => {
-    console.log(data.role)
     router.push(`/${data.role}/dashboard`)
   })
 }

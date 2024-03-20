@@ -1,16 +1,22 @@
 import axios from 'axios'
-import { useStore } from 'vuex'
-import { computed } from 'vue'
-const store = useStore()
-const token = store.state.userData.token
-const axiosWithToken = axios.create({
+import store from '../store/index'
+
+const axiosAuth = axios.create({
   baseURL: 'http://192.168.68.159:8080/api/',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`
+    'X-Requested-With': 'XMLHttpRequest'
   }
 })
 
-axiosWithToken.defaults.withCredentials = true
+axiosAuth.interceptors.request.use((config) => {
+  const token = store.state.userData.token
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
 
-export default axiosWithToken
+axiosAuth.defaults.withCredentials = false
+
+export default axiosAuth

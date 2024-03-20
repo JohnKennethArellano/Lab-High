@@ -29,7 +29,8 @@ import BaseModal from './Modal/BaseModal.vue';
 import BaseButton from "@/components/InputFields/BaseButton.vue"
 import { useStore } from 'vuex';
 import { computed } from "vue"
-
+import { useRouter } from 'vue-router';
+const router = useRouter()
 const store = useStore()
 const openModal = computed(() => store.state.logOutModal.isShowing);
 
@@ -39,8 +40,8 @@ const cancelLogout = () => {
 
 const logout = () => {
     store.dispatch("showLogoutModal", false);
-    store.dispatch('logoutUser').then((data) => {
-        console.log(data)
+    store.dispatch('logoutUser').then(() => {
+        router.push({ name: "login" })
     })
 }
 </script>
