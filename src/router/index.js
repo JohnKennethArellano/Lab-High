@@ -28,42 +28,42 @@ const routes = [
     meta: { requiresAuth: true, role: 'admin' },
     children: [
       {
-        path: '',
+        path: '/admin/dashboard',
         name: 'adminDashboard',
         component: () => import('../views/Admin/Dashboard.vue')
       },
       {
-        path: '/attendance',
+        path: '/admin/attendance',
         name: 'adminAttendance',
         component: () => import('../views/Admin/Attendance.vue')
       },
       {
-        path: '/listOfSections',
+        path: '/admin/listOfSections',
         name: 'adminListOfSections',
         component: () => import('../views/Admin/ListOfSections.vue')
       },
       {
-        path: '/listOfStudents',
+        path: '/admin/listOfStudents',
         name: 'adminLlistOfStudents',
         component: () => import('../views/Admin/ListOfStudents.vue')
       },
       {
-        path: '/announcements',
+        path: '/admin/announcements',
         name: 'adminAnnouncements',
         component: () => import('../views/Admin/Announcements.vue')
       },
       {
-        path: '/account',
+        path: '/admin/account',
         name: 'adminAccount',
         component: () => import('../views/Admin/Account.vue')
       },
       {
-        path: '/users',
+        path: '/admin/users',
         name: 'adminUsers',
         component: () => import('../views/Admin/Users.vue')
       },
       {
-        path: '/activityLog',
+        path: '/admin/activityLog',
         name: 'adminActivityLog',
         component: () => import('../views/Admin/ActivityLog.vue')
       }
@@ -77,32 +77,27 @@ const routes = [
     meta: { requiresAuth: true, role: 'adviser' },
     children: [
       {
-        path: '',
+        path: '/adviser/dashboard',
         name: 'adviserDashboard',
         component: () => import('../views/Adviser/Dashboard.vue')
       },
       {
-        path: '/dashboard',
-        name: 'adviserDashboard',
-        component: () => import('../views/Adviser/Dashboard.vue')
-      },
-      {
-        path: '/attendance',
+        path: '/adviser/attendance',
         name: 'adviserAttendance',
         component: () => import('../views/Adviser/Attendance.vue')
       },
       {
-        path: '/registration',
+        path: '/adviser/registration',
         name: 'adviserRegistration',
         component: () => import('../views/Adviser/Registration.vue')
       },
       {
-        path: '/announcements',
+        path: '/adviser/announcements',
         name: 'adviserAnnouncements',
         component: () => import('../views/Adviser/Announcements.vue')
       },
       {
-        path: '/account',
+        path: '/adviser/account',
         name: 'adviserAccount',
         component: () => import('../views/Adviser/Account.vue')
       }
