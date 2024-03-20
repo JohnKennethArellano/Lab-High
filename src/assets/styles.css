@@ -30,6 +30,8 @@
     width: 250px;
     padding: 20px;
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
   }
 
   .main-content {
@@ -37,23 +39,34 @@
     background-color: #ffffff;
     padding: 40px 55px;
   }
+  nav {
+    flex-grow: 1;
+  }
   nav ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-  nav ul li {
+  nav ul li,
+  .logoutBtn {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
     border-radius: 0.5rem;
   }
-  nav ul li:hover {
+  nav ul li:hover,
+  .logoutBtn:hover {
     font-weight: 500;
     transition: ease-in all 0.3s;
   }
-  nav ul li svg {
+  .logoutBtn:active {
+    background-color: #9b0d32;
+    color: #fff;
+    font-weight: 500;
+  }
+  nav ul li svg,
+  .logoutBtn svg {
     width: 25px;
     height: 25px;
   }

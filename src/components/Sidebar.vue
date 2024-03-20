@@ -24,6 +24,11 @@
                 </router-link>
             </ul>
         </nav>
+
+        <router-link to="/" class="logoutBtn">
+            <Icon icon="basil:logout-outline" />
+            <span>Logout</span>
+        </router-link>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 const state = {
   userData: {
-    role: '',
-    token: ''
+    role: 'admin',
+    token: 'adsd'
   }
 }
 export default state
