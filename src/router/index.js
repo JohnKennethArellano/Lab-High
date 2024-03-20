@@ -120,10 +120,10 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !userLoggedIn) {
     next({ name: 'login' })
   } else if (userLoggedIn && to.name === 'login') {
-    const redirectPath = role ? `/${role}` : '/'
+    const redirectPath = role ? `/${role}/dashboard` : '/'
     next(redirectPath)
   } else if (to.meta.role && role !== to.meta.role) {
-    next(`/${role}`)
+    next(`/${role}/dashboard`)
   } else {
     next()
   }
