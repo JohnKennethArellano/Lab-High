@@ -1,5 +1,6 @@
 <template>
-    <div class="sidebar bg-green-200">
+    <div :class="['sidebar bg-green-200', { 'collapsed': isCollapsed }]">
+        <Icon icon="icon-park-outline:hamburger-button" class="hamburger" @click="toggleSidebar" />
 
         <!-- admin side bar content -->
         <nav v-if="role === 'admin'">
@@ -56,8 +57,6 @@ const adminSidebar = [
     { route: "/admin/account", icon: "mage:settings", text: "Account" },
     { route: "/admin/users", icon: "flowbite:users-group-outline", text: "Users" },
     { route: "/admin/activityLog", icon: "mage:checklist-note", text: "Activity Log" },
-
-
 ]
 
 const logout = () => {
