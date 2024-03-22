@@ -1,4 +1,5 @@
 <template>
+    <!-- modal for logout -->
     <BaseModal v-if="openModal">
         <!-- image here -->
         <!-- text here -->
@@ -8,6 +9,7 @@
             <BaseButton text="Log out" class="mainButton" @click="logout" />
         </div>
     </BaseModal>
+
     <div class="baseLayout">
         <!-- Nav Bar goes here -->
         <NavBar />
@@ -33,7 +35,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 const store = useStore()
 const openModal = computed(() => store.state.logOutModal.isShowing);
-
+const showLoading = computed(() => store.state.showLoading.state);
 const cancelLogout = () => {
     store.dispatch("showLogoutModal", false);
 }
