@@ -1,9 +1,8 @@
 <template>
-  <div
-    class="w-[calc(50%-.5rem)] gap-2 border-[1px] border-solid border-[#DFDFDF] p-7 rounded-md flex flex-col justify-between">
-    <h2 class="text-[20px] font-semibold">Attendance Statistics</h2>
+  <div class="chart w-full gap-2 p-7 flex flex-col justify-between borderedD7">
+    <h2 class="title">Attendance Statistics</h2>
     <!-- today -->
-    <div class="today border-[1px] border-solid border-[#DFDFDF] px-5 py-3 rounded-md">
+    <div class="today borderedD7 p-3">
       <div class="flex justify-between gap-3">
         <p class="font-medium mb-2">Today</p>
         <p>{{ todayPercentage }}%</p>
@@ -15,7 +14,7 @@
     </div>
 
     <!-- this week -->
-    <div class="this_week border-[1px] border-solid border-[#DFDFDF] px-5 py-3 rounded-md">
+    <div class="this_week borderedD7 p-3">
       <div class="flex justify-between gap-3">
         <p class="font-medium mb-2">This Week</p>
         <p>{{ weekPercentage }}%</p>
@@ -27,7 +26,7 @@
     </div>
 
     <!-- this month -->
-    <div class="this_month border-[1px] border-solid border-[#DFDFDF] px-5 py-3 rounded-md">
+    <div class="this_month borderedD7 p-3">
       <div class="flex justify-between gap-3">
         <p class="font-medium mb-2">This Month</p>
         <p>{{ monthPercentage }}%</p>

@@ -62,4 +62,9 @@ const adminSidebar = [
 const logout = () => {
     store.dispatch("showLogoutModal", true)
 }
+
+const isCollapsed = ref(false);
+function toggleSidebar() {
+    isCollapsed.value = !isCollapsed.value;
+}
 </script>

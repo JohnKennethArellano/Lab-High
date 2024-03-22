@@ -38,6 +38,7 @@
     grid-area: main;
     background-color: #ffffff;
     padding: 40px 55px;
+    overflow-y: auto;
   }
   nav {
     flex-grow: 1;
@@ -161,5 +162,16 @@
   .sidebar.collapsed nav ul li,
   .sidebar.collapsed .logoutBtn {
     width: fit-content;
+  }
+}
+@layer components {
+  .dashboardCharts {
+    @apply flex;
+  }
+  .chart .title {
+    @apply text-[20px] font-semibold whitespace-nowrap;
+  }
+  .borderedD7 {
+    @apply border-[1px] border-solid border-[#DFDFDF] rounded-md;
   }
 }

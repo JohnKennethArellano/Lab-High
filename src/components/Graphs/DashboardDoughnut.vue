@@ -1,6 +1,6 @@
 <template>
-  <div class="chartContainer flex items-center gap-4">
-    <canvas ref="chartCanvas"></canvas>
+  <div class="chart flex items-center gap-4 borderedD7 p-7 w-full">
+    <div class="max-h-[50vw] max-w-[50vw] h-full"><canvas ref="chartCanvas"></canvas></div>
     <div class="chartDetails w-1/2 flex flex-col">
       <div class="title">Today's Attendance</div>
       <div class="legend">
