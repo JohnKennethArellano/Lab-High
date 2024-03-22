@@ -1,10 +1,13 @@
 export default {
+  //Set user data
   setUserData: (state, data) => {
     state.userData = data
   },
+  //Toggle logout modal
   showLogOutModal: (state, value) => {
     state.logOutModal.isShowing = value
   },
+  //toggle loading state
   toggleLoader: (state, value) => {
     state.showLoading.state = value
   },

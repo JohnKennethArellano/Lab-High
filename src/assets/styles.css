@@ -11,6 +11,18 @@
   .secondaryButton {
     @apply text-sm text-primary bg-white  py-3 rounded-md border border-primary;
   }
+  .inputField {
+    @apply my-1 border-[1.5px] rounded-md py-2 px-5;
+  }
+  .dashboardCharts {
+    @apply flex;
+  }
+  .chart .title {
+    @apply text-[20px] font-semibold whitespace-nowrap;
+  }
+  .borderedD7 {
+    @apply border-[1px] border-solid border-[#DFDFDF] rounded-md;
+  }
 }
 @layer utilities {
   .baseLayout {
@@ -162,16 +174,5 @@
   .sidebar.collapsed nav ul li,
   .sidebar.collapsed .logoutBtn {
     width: fit-content;
-  }
-}
-@layer components {
-  .dashboardCharts {
-    @apply flex;
-  }
-  .chart .title {
-    @apply text-[20px] font-semibold whitespace-nowrap;
-  }
-  .borderedD7 {
-    @apply border-[1px] border-solid border-[#DFDFDF] rounded-md;
   }
 }

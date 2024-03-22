@@ -1,12 +1,12 @@
-export const getters = {
+export default {
   getUser: (state) => {
-    return state.data.username;
+    return state.data.username
   },
   getSidebarState: (state) => {
-    return state.sidebar.collapsed;
+    return state.sidebar.collapsed
   },
   getStudentsData: (state) => {
-    return state.students.data;
+    return state.students.data
   },
   getRole: (state) => state.userData.role
-};
+}

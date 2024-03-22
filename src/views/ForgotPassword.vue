@@ -1,10 +1,10 @@
 <script setup>
 import BaseInput from '@/components/InputFields/BaseInput.vue'
 import BaseLabel from '@/components/dan_reusable/BaseLabel.vue'
-import BaseButton from '@/components/dan_reusable/BaseButton.vue';
+import BaseButton from '@/components/InputFields/BaseButton.vue';
 import BaseSuccess from '@/components/dan_reusable/BaseSuccess.vue';
 import BaseHeader from '@/components/dan_reusable/BaseHeader.vue';
-import { reactive, computed, defineAsyncComponent } from 'vue';
+import { reactive, computed } from 'vue';
 import { useVuelidate } from '@vuelidate/core';
 import { required, email, helpers } from '@vuelidate/validators';
 import { useRouter } from 'vue-router';
@@ -12,8 +12,6 @@ import { useStore } from 'vuex';
 const router = useRouter();
 const store = useStore();
 //Loading for Button
-const Loader = defineAsyncComponent(() => import('../components/dan_cards/LoadingAnimation.vue'))
-const loading = computed(() => store.state.loading.showLoading)
 const prompt = computed(() => store.state.requestPrompt.showRequestPrompt)
 const handleCancelClick = () => {
     router.push({ name: 'login' });
@@ -67,27 +65,21 @@ const submitForm = async () => {
                     <BaseSuccess v-if="prompt" class="overflow" :label="successMessage" />
                     <div class="flex flex-col mt-5 gap-[10px]">
                         <BaseLabel label="Forgot Your Password?" class="font-semibold mb-2 text-xl" />
-                        <BaseLabel label="Email Address" class="text-[15px]" />
+                        <BaseLabel label="Email Address" class="text-[15px]" for="email" />
                         <div class="w-full flex flex-col mb-2">
                             <BaseInput placeholder="Enter Your Email Address" v-model="formData.email"
-                                class="my-1 border-[1.5px] rounded-md py-2 px-5  "
-                                :class="{ 'border-red-600 border-[3px] shake': v$.email.$error }" />
+                                class="my-1 border-[1.5px] rounded-md py-2 px-5"
+                                :class="{ 'border-red-600 border-[3px] shake': v$.email.$error }" id="email" />
                             <span v-for="error in v$.email.$errors" :key="error.$uid"
                                 class="text-red-500 text-base flex absolute mt-[50px] italic">
                                 {{ error.$message }}
                             </span>
                         </div>
                     </div>
-
-
-                    <div class="flex flex-row mt-5 gap-5">
-                        <BaseButton @click="handleCancelClick()" text="CANCEL"
-                            class="p-2 border-2 border-gray-200 rounded-xl mb-2 bg-slate-100 text-black font-semibold" />
-                        <BaseButton type="submit" text="SEND REQUEST"
-                            class="p-2 rounded-xl mb-2 text-white cursor-pointer">
-                            <Loader v-if="loading" class="items-center justify-center mx-auto"></Loader>
-                            <span v-else class="cursor-pointer">SEND REQUEST</span>
-                        </BaseButton>
+                    <div class="flex gap-6 h-fit mt-3">
+                        <BaseButton text="CANCEL" class="secondaryButton" type="button" width="w-full"
+                            @click="handleCancelClick()" />
+                        <BaseButton text="SEND REQUEST" class="mainButton" type="submit" width="w-full" />
                     </div>
                 </form>
             </div>
