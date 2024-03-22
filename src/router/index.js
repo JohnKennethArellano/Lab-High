@@ -19,7 +19,17 @@ const routes = [
         component: () => import('../views/Dashboard.vue')
       }
     ]
-  }
+  },
+  {
+    path: '/forgot',
+    name: 'forgotpassword',
+    component: () => import('../views/ForgotPassword.vue')
+  },
+  {
+    path: '/reset',
+    name: 'resetpassword',
+    component: () => import('../views/ResetPassword.vue')
+  },
 ]
 
 const router = createRouter({
