@@ -102,7 +102,17 @@ const routes = [
         component: () => import('../views/Adviser/Account.vue')
       }
     ]
-  }
+  },
+  {
+    path: '/forgot',
+    name: 'forgotpassword',
+    component: () => import('../views/ForgotPassword.vue')
+  },
+  {
+    path: '/reset',
+    name: 'resetpassword',
+    component: () => import('../views/ResetPassword.vue')
+  },
 ]
 
 const router = createRouter({
