@@ -1,6 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 @layer components {
   body {
     @apply tracking-wide;
@@ -23,55 +39,105 @@
   .borderedD7 {
     @apply border-[1px] border-solid border-[#DFDFDF] rounded-md;
   }
+  .tableContainer {
+    height: 350px;
+    @apply w-full;
+    overflow-y: auto;
+  }
+  table {
+    width: 100%;
+  }
+  thead {
+    @apply sticky top-0 border-b-2 border-b-white;
+  }
+  thead th {
+    @apply bg-[#F5F5F5];
+  }
+  thead th:nth-of-type(1) {
+    @apply rounded-s-xl;
+  }
+  thead th:nth-last-of-type(1) {
+    @apply rounded-e-xl;
+  }
+  tr {
+    @apply border-b-[1px] border-solid border-[#DFDFDF];
+  }
+  td,
+  th {
+    @apply px-7 py-4;
+  }
+  th:nth-of-type(1),
+  th:nth-of-type(2),
+  tr td:nth-of-type(1),
+  tr td:nth-of-type(2) {
+    @apply text-left;
+  }
+  tr td:nth-of-type(3),
+  tr td:nth-of-type(4) {
+    @apply text-center w-1/6;
+  }
 }
 @layer utilities {
   .baseLayout {
-    display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
       'navbar navbar'
       'sidebar main';
-    height: 100vh;
-    overflow-y: hidden;
+    @apply grid baseFz h-screen overflow-hidden;
   }
   .navbar {
     grid-area: navbar;
-    background-color: #f7f8fc;
-    height: 4.6875rem;
-    z-index: 1;
     box-shadow: 2px 0 2px 2px #00000025;
-
-    display: flex;
-    justify-content: space-between;
-    padding-right: 50px;
+    @apply bg-offWhite h-[4.6875rem] z-10 flex justify-between pr-12;
   }
   .main-content {
     grid-area: main;
-    background-color: #ffffff;
-    padding: 40px 55px;
     overflow-y: auto;
+    @apply px-12 py-8 bg-white;
+  }
+  .tabTitle2 {
+    @apply mt-12;
+  }
+  .tabTitle,
+  .tabTitle2 {
+    @apply mb-3 text-3xl font-semibold uppercase;
+    color: #9b0d32;
   }
   nav {
-    flex-grow: 1;
+    @apply flex-grow;
   }
   nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    @apply flex flex-col gap-4;
   }
   nav ul li,
   .logoutBtn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 0.5rem;
+    @apply flex items-center gap-2 p-2 rounded-lg;
   }
   nav ul li:hover,
   .logoutBtn:hover {
-    font-weight: 500;
+    @apply font-medium;
     transition: ease-in all 0.3s;
+  }
+  .dashboardCharts {
+    @apply flex;
+  }
+  .chart {
+    @apply p-5 borderedD7;
+  }
+  .chart .title {
+    @apply text-xl font-semibold whitespace-nowrap;
+  }
+}
+@layer utilities {
+  .borderedD7 {
+    @apply border-[1px] border-solid border-[#DFDFDF] rounded-md;
+  }
+  .baseFz {
+    font-size: 16px;
+  }
+  .bg-offWhite {
+    background-color: #f7f8fc;
   }
   .logoutBtn:active {
     background-color: #9b0d32;
@@ -80,19 +146,12 @@
   }
   nav ul li svg,
   .logoutBtn svg {
-    width: 25px;
-    height: 25px;
+    @apply size-6;
   }
   nav ul a.active li {
     background-color: #9b0d32;
     color: #fff;
     font-weight: 500;
-  }
-  .tabTitle {
-    color: #9b0d32;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 600;
   }
   .navbar .left {
     height: 100%;
@@ -174,5 +233,32 @@
   .sidebar.collapsed nav ul li,
   .sidebar.collapsed .logoutBtn {
     width: fit-content;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .text-xl {
+    @apply text-lg;
+  }
+  .text-sm {
+    @apply text-xs;
+  }
+  .text-3xl {
+    @apply text-2xl mb-3;
+  }
+  .text-base {
+    @apply text-sm;
+  }
+  .baseFz {
+    font-size: 13px;
+  }
+  .main-content {
+    @apply px-5 py-4;
+  }
+  .gap-4 {
+    @apply gap-3;
+  }
+  .size-6 {
+    @apply size-5;
   }
 }

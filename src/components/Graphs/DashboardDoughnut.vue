@@ -1,7 +1,7 @@
 <template>
-  <div class="chart flex items-center gap-4 borderedD7 p-7 w-full">
-    <div class="max-h-[50vw] max-w-[50vw] h-full"><canvas ref="chartCanvas"></canvas></div>
-    <div class="chartDetails w-1/2 flex flex-col">
+  <div class="chart flex items-center gap-4 ">
+    <div class="size-60"><canvas ref="chartCanvas"></canvas></div>
+    <div class="chartDetails flex flex-col min-w-fit">
       <div class="title">Today's Attendance</div>
       <div class="legend">
         <div class="flex items-center gap-2">
@@ -61,5 +61,27 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Add any necessary styles here */
+@media screen and (max-width:850px) {
+  .chart:nth-of-type(1) {
+    flex-direction: column-reverse;
+    /* align-items: start; */
+  }
+
+  .chartDetails {
+    align-self: start;
+  }
+}
+
+@media screen and (max-width:620px) {
+  .chart .title {
+    white-space: wrap;
+  }
+
+  .size-60 {
+    width: 75%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>

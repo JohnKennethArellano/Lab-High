@@ -35,7 +35,7 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useStore } from 'vuex';
 const store = useStore()
 const role = store.state.userData.role
@@ -63,8 +63,15 @@ const logout = () => {
     store.dispatch("showLogoutModal", true)
 }
 
-const isCollapsed = ref(false);
+const isCollapsed = ref(localStorage.getItem('isCollapsed') === 'true');
 function toggleSidebar() {
     isCollapsed.value = !isCollapsed.value;
+    localStorage.setItem('isCollapsed', isCollapsed.value.toString());
 }
+
+onMounted(() => {
+    if (localStorage.getItem('isCollapsed') === null) {
+        localStorage.setItem('isCollapsed', 'false');
+    }
+});
 </script>

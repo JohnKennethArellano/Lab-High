@@ -1,10 +1,10 @@
 <template>
-  <div class="chart w-full gap-2 p-7 flex flex-col justify-between borderedD7">
+  <div class="chart gap-2 flex flex-col justify-between ">
     <h2 class="title">Attendance Statistics</h2>
     <!-- today -->
     <div class="today borderedD7 p-3">
       <div class="flex justify-between gap-3">
-        <p class="font-medium mb-2">Today</p>
+        <p class="font-medium mb-1">Today</p>
         <p>{{ todayPercentage }}%</p>
       </div>
       <div class="progress-bar">
@@ -16,7 +16,7 @@
     <!-- this week -->
     <div class="this_week borderedD7 p-3">
       <div class="flex justify-between gap-3">
-        <p class="font-medium mb-2">This Week</p>
+        <p class="font-medium mb-1">This Week</p>
         <p>{{ weekPercentage }}%</p>
       </div>
       <div class="progress-bar">
@@ -28,7 +28,7 @@
     <!-- this month -->
     <div class="this_month borderedD7 p-3">
       <div class="flex justify-between gap-3">
-        <p class="font-medium mb-2">This Month</p>
+        <p class="font-medium mb-1">This Month</p>
         <p>{{ monthPercentage }}%</p>
       </div>
       <div class="progress-bar">
@@ -63,4 +63,11 @@ const monthPercentage = props.monthProgress;
   border-radius: 5px;
   height: 100%;
 }
+
+@media screen and (max-width:620px) {
+  .chart .title {
+    white-space: wrap;
+  }
+}
+
 </style>
