@@ -1,6 +1,6 @@
 export default {
   getUser: (state) => {
-    return state.data.username
+    return state.userData
   },
   getSidebarState: (state) => {
     return state.sidebar.collapsed

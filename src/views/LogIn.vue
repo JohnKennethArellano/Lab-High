@@ -50,7 +50,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 const router = useRouter();
 const store = useStore();
-
+store.commit('toggleLoader',false)
 //Loading for Button
 const role = store.state.userData.role
 const prompt = computed(() => store.state.loginPrompt.showLoginPrompt)
@@ -90,7 +90,7 @@ const handleForgotPasswordClick = () => {
 function submitLogin(e) {
     e.preventDefault();
     store.dispatch("login", formData).then((res) => {
-        router.push(`/${role}/dashboard`)
+        router.push(`/admin/dashboard`)
         console.log(res)
     })
 }
@@ -98,8 +98,8 @@ function submitLogin(e) {
 
 <style scoped>
 .bg {
-    background-image: url("../assets/media/carpioBG.png");
-    background-size: cover;
+    background-image: url("/src/assets/dan_images/carpioBG.png");
+    background-size: cover; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,6 +1,11 @@
 <script setup>
 import DashboardDoughnut from '@/components/Graphs/DashboardDoughnut.vue';
 import DashboardProgressBar from '@/components/Graphs/DashboardProgressBar.vue';
+import {useStore} from 'vuex';
+const store = useStore();
+
+
+console.log(store.getters.getUser)
 
 // chart values
 const absentCount = 7;

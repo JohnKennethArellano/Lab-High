@@ -8,6 +8,9 @@ export default {
       commit('setUserData', data)
       commit('toggleLoader', false)
       return data
+    }).catch((error) => {
+      commit('toggleLoader', false)
+      return error
     })
   },
   showLogoutModal({ commit }, value) {
