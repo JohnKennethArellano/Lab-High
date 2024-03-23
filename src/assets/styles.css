@@ -1,6 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 @layer components {
   body {
     @apply tracking-wide;
@@ -23,6 +39,43 @@
   .borderedD7 {
     @apply border-[1px] border-solid border-[#DFDFDF] rounded-md;
   }
+  .tableContainer {
+    height: 350px;
+    @apply w-full;
+    overflow-y: auto;
+  }
+  table {
+    width: 100%;
+  }
+  thead {
+    @apply sticky top-0 border-b-2 border-b-white;
+  }
+  thead th {
+    @apply bg-[#F5F5F5];
+  }
+  thead th:nth-of-type(1) {
+    @apply rounded-s-xl;
+  }
+  thead th:nth-last-of-type(1) {
+    @apply rounded-e-xl;
+  }
+  tr {
+    @apply border-b-[1px] border-solid border-[#DFDFDF];
+  }
+  td,
+  th {
+    @apply px-7 py-4;
+  }
+  th:nth-of-type(1),
+  th:nth-of-type(2),
+  tr td:nth-of-type(1),
+  tr td:nth-of-type(2) {
+    @apply text-left;
+  }
+  tr td:nth-of-type(3),
+  tr td:nth-of-type(4) {
+    @apply text-center w-1/6;
+  }
 }
 @layer utilities {
   .baseLayout {
@@ -43,8 +96,13 @@
     overflow-y: auto;
     @apply px-12 py-8 bg-white;
   }
-  .tabTitle {
-    @apply mb-3;
+  .tabTitle2 {
+    @apply mt-12;
+  }
+  .tabTitle,
+  .tabTitle2 {
+    @apply mb-3 text-3xl font-semibold uppercase;
+    color: #9b0d32;
   }
   nav {
     @apply flex-grow;
@@ -94,12 +152,6 @@
     background-color: #9b0d32;
     color: #fff;
     font-weight: 500;
-  }
-  .tabTitle {
-    color: #9b0d32;
-    text-transform: uppercase;
-    font-weight: 600;
-    @apply text-3xl;
   }
   .navbar .left {
     height: 100%;
