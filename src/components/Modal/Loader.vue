@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute h-screen w-screen grid place-items-center z-50 bg-white ">
+    <div class="absolute h-screen w-screen grid place-items-center z-50 bg-[#ffffff7b]">
         <div class="custom-loader"></div>
     </div>
 </template>
