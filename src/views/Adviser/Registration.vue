@@ -1,7 +1,6 @@
 <template>
-    <h1>Dashboard</h1>
+  <div class="tabTitle">Registration</div>
 </template>
-
 
 <script setup>
 
