@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar bg-red-200">
+    <div class="navbar">
         <div class="left">
             <img src="../assets/media/labhighLogo.png" alt="logo" id="logo">
         </div>

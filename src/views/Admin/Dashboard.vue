@@ -14,13 +14,13 @@ const month = 86;
 
 <template>
   <div class="tabTitle">dashboard</div>
-  <div class="dashboardCharts h-[250px] gap-4">
-    <DashboardDoughnut :absent-data="absentCount" :present-data="presentCount" />
-    <DashboardProgressBar :today-progress="today" :week-progress="week" :month-progress="month" />
+  <div class="dashboardCharts h-fit gap-4">
+    <DashboardDoughnut :absent-data="absentCount" :present-data="presentCount" class="w-1/2" />
+    <DashboardProgressBar :today-progress="today" :week-progress="week" :month-progress="month" class="w-1/2" />
   </div>
 </template>
 <style scoped>
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .dashboardCharts {
     flex-direction: column;
   }
@@ -29,5 +29,21 @@ const month = 86;
     flex-direction: column-reverse;
     height: fit-content;
   }
+} */
+
+@media screen and (max-width:1360px) {
+  .dashboardCharts {
+    flex-direction: column;
+  }
+
+  .chart {
+    width: 100%;
+  }
+
+  .chart:nth-of-type(1) {
+    justify-content: center;
+  }
 }
+
+
 </style>

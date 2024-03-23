@@ -18,7 +18,7 @@
         <Sidebar />
 
         <!-- Main Content goes here -->
-        <div class="main-content bg-blue-200">
+        <div class="main-content">
             <router-view></router-view>
         </div>
     </div>
