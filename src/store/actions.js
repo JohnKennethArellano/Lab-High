@@ -1,6 +1,6 @@
 import axios from '@/axios/axios'
 import axiosAuth from '@/axios/axioswithtoken'
-import Swal from 'sweetalert2'
+
 
 export default {
   async login({ commit }, formData) {
