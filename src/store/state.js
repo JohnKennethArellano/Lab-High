@@ -24,6 +24,9 @@ const state = {
   },
   sidebar: {
     collapsed: false,
+  },
+  graphData : {
+
   }
 }
 export default state

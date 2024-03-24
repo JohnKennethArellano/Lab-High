@@ -24,5 +24,12 @@ export default {
       commit('toggleLoader', false)
       return data
     })
-  }
+  },
+  async graphDatas({ commit }) {
+  await axiosAuth.get('dashboard/graph').then(({ data }) => {
+    commit('setGraphdata', data)
+  }).catch((error) => {
+    console.log(error)
+  })
+  },
 }

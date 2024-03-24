@@ -2,15 +2,22 @@
 import DashboardDoughnut from '@/components/Graphs/DashboardDoughnut.vue';
 import DashboardProgressBar from '@/components/Graphs/DashboardProgressBar.vue';
 import InfiniteScroll from '@/components/Table/InfiniteScroll.vue';
+import { useStore } from 'vuex';
+const store = useStore();
+
+store.dispatch("graphDatas")
+
+const graphDatas = store.getters.getGraphData
+console.log(graphDatas)
 
 // chart values
-const absentCount = 7;
-const presentCount = 24;
+const absentCount = graphDatas.student_count_today - graphDatas.attendance_count_today;
+const presentCount = graphDatas.attendance_count_today;
 
 // please use percentage (presents divided by overall number of students)
-const today = 77;
-const week = 95;
-const month = 86;
+const today = Math.floor((100 * graphDatas.attendance_count_today) / graphDatas.student_count_today);
+const week = Math.floor((100 * graphDatas.attendance_count_week) / graphDatas.student_count_week);
+const month = Math.floor((100 * graphDatas.attendance_count_month) / graphDatas.student_count_month);
 </script>
 
 <template>
