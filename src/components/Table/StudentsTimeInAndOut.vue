@@ -1,5 +1,4 @@
 <template>
-  <SearchField />
   <div class="tableContainer">
     <table>
       <thead>
