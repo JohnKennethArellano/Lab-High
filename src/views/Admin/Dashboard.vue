@@ -14,7 +14,10 @@
 
   <div class="flex items-center gap-4 justify-between">
     <SearchField />
-    <YearAndSectionFilter :initialOption="'Select an option'" :options="dropdownOptions" />
+    <div class="dropFilter">
+      <span class="filterLabel">Filter by <span>Section</span></span>
+      <YearAndSectionFilter :initialOption="'Select an option'" :options="dropdownOptions" />
+    </div>
   </div>
   <div class="tableContainer">
     <Suspense>

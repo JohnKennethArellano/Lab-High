@@ -106,6 +106,12 @@
   .fade-leave-to {
     opacity: 0;
   }
+  .dropFilter {
+    @apply flex items-center gap-4;
+  }
+  .filterLabel {
+    @apply text-[#949494];
+  }
 }
 @layer utilities {
   .baseLayout {
