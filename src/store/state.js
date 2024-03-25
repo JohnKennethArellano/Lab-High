@@ -1,6 +1,44 @@
+// const state = {
+//   userData: {},
+//   logOutModal: {
+//     isShowing: false
+//   },
+//   showLoading: {
+//     state: false
+//   },
+//   data: {
+//     username: "",
+//   },
+//   loading: {
+//     showLoading: false,
+//   },
+//   loginPrompt: {
+//     showLoginPrompt: false,
+//   },
+//   requestPrompt: {
+//     showRequestPrompt: false,
+//   },
+//   resetPrompt: {
+//     showResetPrompt: false,
+//   },
+//   sidebar: {
+//     collapsed: false,
+//   },
+//   graphData : {
+
+//   }
+// }
+// export default state
 
 const state = {
-  userData: {},
+  userData: {
+    role: 'admin',
+    token: 'sdd',
+    user_data: {
+      first_name: 'Nicole',
+      last_name: 'Santos'
+    }
+  },
   logOutModal: {
     isShowing: false
   },
@@ -8,25 +46,23 @@ const state = {
     state: false
   },
   data: {
-    username: "",
+    username: 'dmlsd'
   },
   loading: {
-    showLoading: false,
+    showLoading: false
   },
   loginPrompt: {
-    showLoginPrompt: false,
+    showLoginPrompt: false
   },
   requestPrompt: {
-    showRequestPrompt: false,
+    showRequestPrompt: false
   },
   resetPrompt: {
-    showResetPrompt: false,
+    showResetPrompt: false
   },
   sidebar: {
-    collapsed: false,
+    collapsed: false
   },
-  graphData : {
-
-  }
+  graphData: {}
 }
 export default state
