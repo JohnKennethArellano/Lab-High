@@ -48,9 +48,10 @@ import { useVuelidate } from '@vuelidate/core'
 import { required, email, helpers } from '@vuelidate/validators'
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import Swal from 'sweetalert2';
 const router = useRouter();
 const store = useStore();
-
+store.commit('toggleLoader',false)
 //Loading for Button
 const role = store.state.userData.role
 const prompt = computed(() => store.state.loginPrompt.showLoginPrompt)
@@ -90,16 +91,47 @@ const handleForgotPasswordClick = () => {
 function submitLogin(e) {
     e.preventDefault();
     store.dispatch("login", formData).then((res) => {
-        router.push(`/${role}/dashboard`)
-        console.log(res)
+        if(res.token)
+        {
+            router.push(`/admin/dashboard`)
+            return;
+        }
+        const status = res.response.status
+        
+        if (status === 401) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: res.response.data.message,
+            })
+            return;
+        }
+        if (status === 500) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Server Error!',
+            })
+            return;
+        }
+        if(status === 422)
+        {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: res.response.data.errors,
+            })
+        }
+        
+       
     })
 }
 </script>
 
 <style scoped>
 .bg {
-    background-image: url("../assets/media/carpioBG.png");
-    background-size: cover;
+    background-image: url("/src/assets/dan_images/carpioBG.png");
+    background-size: cover; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

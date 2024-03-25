@@ -1,6 +1,8 @@
+import { get } from "@vueuse/core"
+
 export default {
   getUser: (state) => {
-    return state.data.username
+    return state.userData
   },
   getSidebarState: (state) => {
     return state.sidebar.collapsed
@@ -8,5 +10,8 @@ export default {
   getStudentsData: (state) => {
     return state.students.data
   },
-  getRole: (state) => state.userData.role
+  getRole: (state) => state.userData.role,
+  getGraphData: (state) => {
+    return state.graphData
+  }
 }

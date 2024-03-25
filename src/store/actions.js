@@ -1,6 +1,7 @@
 import axios from '@/axios/axios'
 import axiosAuth from '@/axios/axioswithtoken'
 
+
 export default {
   async login({ commit }, formData) {
     commit('toggleLoader', true)
@@ -8,6 +9,9 @@ export default {
       commit('setUserData', data)
       commit('toggleLoader', false)
       return data
+    }).catch((error) => {
+      commit('toggleLoader', false)
+      return error
     })
   },
   showLogoutModal({ commit }, value) {
@@ -20,5 +24,12 @@ export default {
       commit('toggleLoader', false)
       return data
     })
-  }
+  },
+  async graphDatas({ commit }) {
+  await axiosAuth.get('dashboard/graph').then(({ data }) => {
+    commit('setGraphdata', data)
+  }).catch((error) => {
+    console.log(error)
+  })
+  },
 }

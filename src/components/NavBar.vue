@@ -11,7 +11,7 @@
                 </div>
                 <div class="userDetails">
                     <div class="name">
-                        Jane Doe
+                        {{userData.user_data.first_name}} {{userData.user_data.last_name}}
                     </div>
                     <div class="role">{{ userData.role }}</div>
                 </div>
@@ -23,7 +23,11 @@
 
 <script setup>
 
-import state from '../store/state'
+import { useStore } from 'vuex';
 
-const userData = state.userData
+const store = useStore();
+
+
+const userData = store.state.userData;
+console.log(userData)
 </script>

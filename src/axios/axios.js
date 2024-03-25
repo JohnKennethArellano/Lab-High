@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const axiosClient = axios.create({
   //baseURL: "/api",
-  baseURL: 'http://192.168.68.159:8080/api/',
+  baseURL: 'http://localhost:8000/api/',
   headers: {
     'Content-Type': 'application/json',
     Authorization: 'Bearer ${store.state.user.token}'

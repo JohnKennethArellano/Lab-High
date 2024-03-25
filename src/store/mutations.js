@@ -22,5 +22,8 @@ export default {
   },
   showResetPrompt: (state, showResetPrompt) => {
     state.resetPrompt.showResetPrompt = showResetPrompt
-  }
+  },
+  setGraphdata: (state, data) => {
+    state.graphData = data
+  },
 }

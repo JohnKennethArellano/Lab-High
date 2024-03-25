@@ -10,6 +10,18 @@ const routes = [
     meta: { requiresAuth: false },
     component: () => import('../views/LogIn.vue')
   },
+  {
+    path: '/forgot',
+    name: 'forgotpassword',
+    meta: { requiresAuth: false },
+    component: () => import('../views/ForgotPassword.vue')
+  },
+  {
+    path: '/reset',
+    name: 'resetpassword',
+    meta: { requiresAuth: false },
+    component: () => import('../views/ResetPassword.vue')
+  },
   // 404 page
   {
     path: '/404',
@@ -103,16 +115,7 @@ const routes = [
       }
     ]
   },
-  {
-    path: '/forgot',
-    name: 'forgotpassword',
-    component: () => import('../views/ForgotPassword.vue')
-  },
-  {
-    path: '/reset',
-    name: 'resetpassword',
-    component: () => import('../views/ResetPassword.vue')
-  },
+  
 ]
 
 const router = createRouter({
