@@ -31,6 +31,7 @@
 import { ref } from 'vue';
 import getUsers from '@/api/getStudents'
 import { useInfiniteScroll } from '@vueuse/core';
+import SearchField from '@/components/Table/SearchField.vue';
 
 const listEl = ref(null);
 const usersToShow = 1;
