@@ -6,7 +6,7 @@
         <div class="right">
             <div class="user">
                 <div class="userImg">
-                    <img src="https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg"
+                    <img v-bind:src="profileImg"
                         alt="userImg">
                 </div>
                 <div class="userDetails">
@@ -29,5 +29,7 @@ const store = useStore();
 
 
 const userData = store.state.userData;
-console.log(userData)
+console.log(userData.image)
+const profileImg = `http://localhost:8000/storage/images/admin/${userData.image}`
+
 </script>

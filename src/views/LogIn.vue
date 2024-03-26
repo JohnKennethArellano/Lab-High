@@ -53,7 +53,7 @@ const router = useRouter();
 const store = useStore();
 store.commit('toggleLoader',false)
 //Loading for Button
-const role = store.state.userData.role
+
 const prompt = computed(() => store.state.loginPrompt.showLoginPrompt)
 //VUELIDATE RULES
 const rules = computed(() => {

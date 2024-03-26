@@ -2,6 +2,7 @@ import axios from '@/axios/axios'
 import axiosAuth from '@/axios/axioswithtoken'
 
 
+
 export default {
   async login({ commit }, formData) {
     commit('toggleLoader', true)
@@ -32,4 +33,11 @@ export default {
     console.log(error)
   })
   },
+  async advisergraphDatas({ commit }) {
+    await axiosAuth.get('dashboard/graph/adviser').then(({ data }) => {
+      commit('setGraphdata', data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
 }

@@ -5,10 +5,11 @@ import InfiniteScroll from '@/components/Table/InfiniteScroll.vue';
 import { useStore } from 'vuex';
 const store = useStore();
 
+
 store.dispatch("graphDatas")
 
 const graphDatas = store.getters.getGraphData
-console.log(graphDatas)
+
 
 // chart values
 const absentCount = graphDatas.student_count_today - graphDatas.attendance_count_today;

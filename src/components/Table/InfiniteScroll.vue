@@ -2,18 +2,20 @@
   <div class="tableContainer">
     <table>
       <thead>
-        <th>Learner's Reference Number</th>
+        <th>LRN</th>
         <th>Full Name</th>
+        <th>Class</th>
         <th>Time In</th>
         <th>Time Out</th>
       </thead>
 
       <tbody ref="listEl">
         <tr v-for="user in usersList">
-          <td>{{ user.id }}</td>
-          <td>{{ user.firstName }} {{ user.maidenName.charAt(0) }}. {{ user.lastName }}</td>
-          <td>{{ user.age }}</td>
-          <td>{{ user.age }}</td>
+          <td>{{ user.student_id }}</td>
+          <td>{{ user.student_name }}</td>
+          <td>{{ user.class_name }}</td>
+          <td>{{ user.start_Time }}</td>
+          <td>{{ user.end_Time }}</td>
         </tr>
         <tr>
           <td>Fetching more users...</td>
@@ -31,8 +33,8 @@ import getUsers from '@/api/getStudents'
 import { useInfiniteScroll } from '@vueuse/core';
 
 const listEl = ref(null);
-const usersToShow = 5;
-const usersList = ref(await getUsers(usersToShow, 0));
+const usersToShow = 1;
+const usersList = ref(await getUsers(usersToShow));
 const fetchingData = ref(null);
 const getUsersOnScroll = async () => {
   fetchingData.value = true;

@@ -1,6 +1,8 @@
 
 const state = {
-  userData: {},
+  userData: {
+
+  },
   logOutModal: {
     isShowing: false
   },

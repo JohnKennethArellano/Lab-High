@@ -9,5 +9,5 @@ import Loader from './components/Modal/Loader.vue';
 import { useStore } from 'vuex';
 import { computed } from "vue"
 const store = useStore()
-const showLoading = computed(() => store.state.showLoading.state);
+const showLoading = computed(() => false);
 </script>

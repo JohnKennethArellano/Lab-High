@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axiosAuth from "@/axios/axioswithtoken"
 
-const getUsers = async (limit, skip) => {
-  const users = await axios.get(`https://dummyjson.com/users?limit=${limit}&skip=${skip}`)
-
-  return users.data.users
+const getUsers = async (page) => {
+  
+  const users = await axiosAuth.get(`dashboard/table/today?page=${page}`)
+  return users.data.attendance_today
 }
 export default getUsers
